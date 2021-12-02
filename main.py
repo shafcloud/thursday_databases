@@ -1,16 +1,22 @@
-# This is a sample Python script.
+import mariadb
+import sys
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+try:
+    conn = mariadb.connect(
+        user="root",
+        password="root",
+        host="127.0.0.1",
+        port=3306,
+        database="classicmodels"
 
+    )
+except mariadb.Error as e:
+    print(f"Error connecting to MariaDB Platform: {e}")
+    sys.exit(1)
+else:
+    print("test")
+# Get Cursor
+cur = conn.cursor()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    pass
